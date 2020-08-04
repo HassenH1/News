@@ -7,7 +7,7 @@ function Loading() {
       <Row className="justify-content-md-center">
         <Col xs lg="2"></Col>
         <Col md="auto">
-          <Spinner animation="border" role="status">
+          <Spinner animation="border" role="status" variant="primary">
             <span className="sr-only">Loading...</span>
           </Spinner>
         </Col>
