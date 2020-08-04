@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Row, Col, Figure } from "react-bootstrap";
+import { Container, Row, Col, Figure, Card, Button } from "react-bootstrap";
 import Context from "./Context/Context";
 import Loading from "./Loading";
 
@@ -30,7 +30,6 @@ function Home() {
                   <Figure.Image
                     width={324}
                     height={216}
-                    alt="171x180"
                     src={item.urlToImage}
                     style={{ borderRadius: "0.7rem" }}
                   />
