@@ -11,13 +11,10 @@ app.get("/", (req, res) => {
       country: "us",
     })
     .then((response) => {
-      console.log(response, "<=====the response is?");
-      /*
-      {
+      res.json({
         status: "ok",
-        articles: [...]
-      }
-    */
+        articles: response.articles, //adding object to array
+      });
     });
 });
 
