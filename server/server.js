@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
     .then((response) => {
       res.json({
         status: "ok",
+        totalResults: 38,
         articles: response.articles, //adding object to array
       });
     });
