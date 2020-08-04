@@ -22,7 +22,7 @@ function Home() {
             <Col className="mx-2 my-2">
               {!item?.urlToImage ? (
                 <Figure>
-                  <h4 style={{ textAlign: "center" }}>No image</h4>
+                  <h4 style={{ textAlign: "center" }}>No image Available</h4>
                   <Figure.Caption>{item.title}</Figure.Caption>
                 </Figure>
               ) : (

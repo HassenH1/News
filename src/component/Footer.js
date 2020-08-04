@@ -1,32 +1,33 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
 
 function Footer() {
   return (
     <div className="main-footer">
       <div className="container bg-dark text-white">
-        <div className="row bg-dark">
+        <div className="row bg-dark ">
           {/* column 1 */}
           <div className="col">
             <h4>Contact</h4>
             <ul className="list-unstyled">
-              <li>Email: hasansaid51@gmail.com</li>
-              <li>Phone: (323)445-4642</li>
-              <li>Website: https://hassen.ga/</li>
-              <li>Github: https://github.com/HassenH1/</li>
+              <li>hasansaid51@gmail.com</li>
+              <li>
+                <a href="https://hassen.ga/">My Portfolio</a>
+              </li>
+              <li>
+                <a href="https://github.com/HassenH1/">My Github</a>
+              </li>
             </ul>
           </div>
-          {/* 
-          <div className="col-md-3 col-sm-6"></div>
 
-          <div className="col-md-3 col-sm-6"></div> */}
-
-          {/* column 4 */}
           <div className="col">
             <h4>News API </h4>
             <ul className="list-unstyled">
-              <li>Website: https://newsapi.org/</li>
-              <li>Twitter: https://twitter.com/NewsAPIorg</li>
+              <li>
+                <a href="https://newsapi.org/">NewAPI website</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NewsAPIorg">NewAPI Twitter</a>
+              </li>
             </ul>
           </div>
         </div>
