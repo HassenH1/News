@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Row, Col, Image, Figure } from "react-bootstrap";
+import { Container, Row, Col, Figure } from "react-bootstrap";
 import Context from "./Context/Context";
 import Loading from "./Loading";
 
@@ -17,11 +17,9 @@ function Home() {
   ) : (
     article?.map((art, i) => {
       return (
-        <Row>
+        <Row className="text-center">
           {art.map((item) => (
             <Col className="mx-2 my-2">
-              {/* <Image src={item.urlToImage} thumbnail />
-              {item.title} */}
               {!item?.urlToImage ? (
                 <Figure>
                   <h4 style={{ textAlign: "center" }}>No image</h4>
@@ -36,7 +34,9 @@ function Home() {
                     src={item.urlToImage}
                     style={{ borderRadius: "0.7rem" }}
                   />
-                  <Figure.Caption>{item.title}</Figure.Caption>
+                  <Figure.Caption className="font-weight-light text-lg-center">
+                    {item.title}
+                  </Figure.Caption>
                 </Figure>
               )}
             </Col>
@@ -48,7 +48,6 @@ function Home() {
 
   return (
     <>
-      {console.log(headliners)}
       <br />
       <Container>{body}</Container>
     </>
