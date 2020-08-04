@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Context from "./Context";
+import Context from "./Context/Context";
 
 function Home() {
-  const { TopHeadlines } = useContext(Context);
+  const { headliners } = useContext(Context);
   return (
     <>
       <br />
       <Container>
-        {/* {console.log(TopHeadlines, "<-----------from Home component")} */}
+        {console.log(headliners, "<-------from Home")}
         <Row>
           <Col style={{ border: "1px solid orange" }}></Col>
           <Col style={{ border: "1px solid blue" }}></Col>

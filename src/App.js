@@ -1,15 +1,15 @@
 import React from "react";
 import Navbar from "./component/Navbar";
 import Home from "./component/Home";
-import Context from "./component/Context";
+import ContextProvider from "./component/Context/ContextProvider";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Context.Consumer>
+      <ContextProvider>
         <Home />
-      </Context.Consumer>
+      </ContextProvider>
     </div>
   );
 }
