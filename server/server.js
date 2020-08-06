@@ -11,6 +11,7 @@ app.use(express.json()); //like body-parser
 app.get("/", (req, res) => {
   newsapi.v2
     .topHeadlines({
+      // category: "technology",
       language: "en",
       country: "us",
       sortBy: "relevancy",

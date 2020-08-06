@@ -16,6 +16,11 @@ function Home() {
     })
     .filter((x) => x !== null);
 
+  const getDate = (utcDate) => {
+    const localDate = new Date(utcDate);
+    return localDate.toLocaleDateString().toString();
+  };
+
   const body = !article ? (
     <Loading />
   ) : (
@@ -33,7 +38,10 @@ function Home() {
                   <Figure.Caption className="font-weight-bold">
                     {item.title}
                   </Figure.Caption>
-                  <p className="font-weight-light">{item.publishedAt}</p>
+                  {/* <p className="font-weight-light">{item.publishedAt}</p> */}
+                  <p className="font-weight-light">
+                    {getDate(item.publishedAt)}
+                  </p>
                 </Figure>
               ) : (
                 <Figure
@@ -49,7 +57,10 @@ function Home() {
                   <Figure.Caption className="font-weight-bold text-lg-center">
                     {item.title}
                   </Figure.Caption>
-                  <p className="font-weight-light">{item.publishedAt}</p>
+                  {/* <p className="font-weight-light">{item.publishedAt}</p> */}
+                  <p className="font-weight-light">
+                    {getDate(item.publishedAt)}
+                  </p>
                 </Figure>
               )}
             </Col>
