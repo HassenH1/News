@@ -4,7 +4,7 @@ import Context from "./Context";
 function ContextProvider(props) {
   const [headliners, setHeadliners] = useState();
 
-  const fetchingHeadliners = async () => {
+  const fetchHeadliners = async () => {
     try {
       const response = await fetch("http://localhost:5000/", {
         method: "Get",
@@ -18,7 +18,7 @@ function ContextProvider(props) {
   };
 
   useEffect(() => {
-    fetchingHeadliners();
+    fetchHeadliners();
   }, []);
 
   return (

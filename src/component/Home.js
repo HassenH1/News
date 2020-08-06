@@ -6,6 +6,10 @@ import Loading from "./Loading";
 function Home() {
   const { headliners } = useContext(Context);
 
+  const handleClick = () => {
+    console.log("clicked");
+  };
+
   const article = headliners?.articles
     ?.map((article, i) => {
       return i % 3 === 0 ? headliners.articles.slice(i, i + 3) : null;
@@ -17,25 +21,35 @@ function Home() {
   ) : (
     article?.map((art, i) => {
       return (
-        <Row className="text-center">
-          {art.map((item) => (
-            <Col className="mx-2 my-2">
+        <Row className="text-center" key={i}>
+          {art.map((item, i) => (
+            <Col className="mx-2 my-2" key={i}>
               {!item?.urlToImage ? (
-                <Figure>
+                <Figure
+                  onClick={() => handleClick()}
+                  style={{ cursor: "pointer" }}
+                >
                   <h4 style={{ textAlign: "center" }}>No image Available</h4>
-                  <Figure.Caption>{item.title}</Figure.Caption>
+                  <Figure.Caption className="font-weight-bold">
+                    {item.title}
+                  </Figure.Caption>
+                  <p className="font-weight-light">{item.publishedAt}</p>
                 </Figure>
               ) : (
-                <Figure>
+                <Figure
+                  onClick={() => handleClick()}
+                  style={{ cursor: "pointer" }}
+                >
                   <Figure.Image
                     width={324}
                     height={216}
                     src={item.urlToImage}
-                    style={{ borderRadius: "0.7rem" }}
+                    // style={{ borderRadius: "0.7rem" }}
                   />
-                  <Figure.Caption className="font-weight-light text-lg-center">
+                  <Figure.Caption className="font-weight-bold text-lg-center">
                     {item.title}
                   </Figure.Caption>
+                  <p className="font-weight-light">{item.publishedAt}</p>
                 </Figure>
               )}
             </Col>
@@ -47,6 +61,7 @@ function Home() {
 
   return (
     <>
+      {console.log(headliners)}
       <br />
       <Container>{body}</Container>
     </>

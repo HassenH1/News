@@ -13,11 +13,11 @@ app.get("/", (req, res) => {
     .topHeadlines({
       language: "en",
       country: "us",
+      sortBy: "relevancy",
     })
     .then((response) => {
       res.json({
         status: "ok",
-        totalResults: 38,
         articles: response.articles, //adding object to array
       });
     });
