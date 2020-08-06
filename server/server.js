@@ -24,6 +24,20 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/testing", (req, res) => {
+  newsapi.v2
+    .topHeadlines({
+      // category: "technology",
+      q:
+        "Teladoc Health Merging with Livongo Health in Deal Worth $18.5 Billion - Motley Fool",
+      language: "en",
+      country: "us",
+    })
+    .then((response) => {
+      console.log(response, "<-------does it find the article itself?");
+    });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

@@ -18,8 +18,22 @@ function ContextProvider(props) {
     }
   };
 
+  const testing = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/testing", {
+        method: "GET",
+      });
+
+      const result = await response.json();
+      console.log(result, "<---------------the response for testing");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetchHeadliners();
+    testing();
   }, []);
 
   return (
