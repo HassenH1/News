@@ -11,7 +11,6 @@ app.use(express.json()); //like body-parser
 app.get("/", (req, res) => {
   newsapi.v2
     .topHeadlines({
-      // category: "technology",
       language: "en",
       country: "us",
       sortBy: "relevancy",
@@ -28,6 +27,38 @@ app.get("/technology", (req, res) => {
   newsapi.v2
     .topHeadlines({
       category: "technology",
+      language: "en",
+      country: "us",
+      sortBy: "relevancy",
+    })
+    .then((response) => {
+      res.json({
+        status: "ok",
+        articles: response.articles, //adding object to array
+      });
+    });
+});
+
+app.get("/politics", (req, res) => {
+  newsapi.v2
+    .topHeadlines({
+      category: "politics",
+      language: "en",
+      country: "us",
+      sortBy: "relevancy",
+    })
+    .then((response) => {
+      res.json({
+        status: "ok",
+        articles: response.articles, //adding object to array
+      });
+    });
+});
+
+app.get("/sports", (req, res) => {
+  newsapi.v2
+    .topHeadlines({
+      category: "sports",
       language: "en",
       country: "us",
       sortBy: "relevancy",
