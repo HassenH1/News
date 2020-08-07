@@ -6,8 +6,8 @@ import Loading from "./Loading";
 function Home() {
   const { entertainment, fetchEntertainment } = useContext(Context);
 
-  const handleClick = () => {
-    console.log("clicked");
+  const handleClick = (article) => {
+    console.log(article, "clicked");
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function Home() {
             <Col className="mx-2 my-2" key={i}>
               {!item?.urlToImage ? (
                 <Figure
-                  onClick={() => handleClick()}
+                  onClick={() => handleClick(item)}
                   style={{
                     cursor: "pointer",
                     display: "flex",
@@ -70,7 +70,7 @@ function Home() {
                 </Figure>
               ) : (
                 <Figure
-                  onClick={() => handleClick()}
+                  onClick={() => handleClick(item)}
                   style={{
                     cursor: "pointer",
                     display: "flex",
@@ -109,7 +109,6 @@ function Home() {
 
   return (
     <>
-      {console.log(entertainment)}
       <br />
       <Container>
         <Row>

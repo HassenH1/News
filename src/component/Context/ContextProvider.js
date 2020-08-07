@@ -55,7 +55,6 @@ function ContextProvider(props) {
       });
 
       const result = await response.json();
-      console.log(result, ",-----------------------sporst resykt");
       setSports(result);
     } catch (err) {
       console.log(err);
@@ -69,7 +68,6 @@ function ContextProvider(props) {
       });
 
       const result = await response.json();
-      console.log(result, ",-----------------------sporst resykt");
       setEntertainment(result);
     } catch (err) {
       console.log(err);
