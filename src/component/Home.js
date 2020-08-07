@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Row, Col, Figure, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Figure } from "react-bootstrap";
 import Context from "./Context/Context";
 import Loading from "./Loading";
 
@@ -38,13 +38,14 @@ function Home() {
                     flexDirection: "row",
                     justifyContent: "space-between",
                   }}
+                  className="shadow p-3 mb-5 bg-white rounded"
                 >
                   <h4
                     style={{
                       textAlign: "center",
                       width: "324px",
                       height: "216px",
-                      border: "1px solid orange",
+                      border: "1px solid whitesmoke",
                     }}
                   >
                     No image Available
@@ -52,10 +53,15 @@ function Home() {
                   <Figure.Caption className="text-lg-center d-flex flex-column  align-items-start w-50">
                     <div className="col">
                       <div className="font-weight-bold">{item.title}</div>
+                      <div className="col">
+                        <div className="font-weight-normal text-left">
+                          {item.description}
+                        </div>
+                      </div>
                     </div>
-                    <p className="font-weight-light">
-                      {getDate(item.publishedAt)}
-                    </p>
+                    <div className="font-weight-light text-right w-100">
+                      <p>{getDate(item.publishedAt)}</p>
+                    </div>
                   </Figure.Caption>
                 </Figure>
               ) : (
@@ -74,7 +80,7 @@ function Home() {
                     height={216}
                     src={item.urlToImage}
                   />
-                  <Figure.Caption className="text-lg-center d-flex flex-column  align-items-start w-50">
+                  <Figure.Caption className="text-lg-center d-flex flex-column align-items-start w-50">
                     <div className="col">
                       <div className="font-weight-bold">{item.title}</div>
                     </div>
@@ -101,6 +107,17 @@ function Home() {
     <>
       {console.log(headliners)}
       <br />
+      <Container>
+        <Row>
+          <Col></Col>
+          <Col xs={6}>
+            <div className="text-center font-weight-bold">
+              <h1>Top Headlines</h1>
+            </div>
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
       <Container>{body}</Container>
     </>
   );
