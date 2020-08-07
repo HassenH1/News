@@ -4,19 +4,19 @@ import Context from "./Context/Context";
 import Loading from "./Loading";
 
 function Home() {
-  const { politics, fetchPolitics } = useContext(Context);
+  const { entertainment, fetchEntertainment } = useContext(Context);
 
   const handleClick = () => {
     console.log("clicked");
   };
 
   useEffect(() => {
-    fetchPolitics();
-  });
+    fetchEntertainment();
+  }, []);
 
-  const article = politics?.articles
+  const article = entertainment?.articles
     ?.map((article, i) => {
-      return i % 1 === 0 ? politics.articles.slice(i, i + 1) : null;
+      return i % 1 === 0 ? entertainment.articles.slice(i, i + 1) : null;
     })
     .filter((x) => x !== null);
 
@@ -109,14 +109,14 @@ function Home() {
 
   return (
     <>
-      {console.log(politics)}
+      {console.log(entertainment)}
       <br />
       <Container>
         <Row>
           <Col></Col>
           <Col xs={6}>
             <div className="text-center font-weight-bold">
-              <h1>Politics</h1>
+              <h1>Top Headlines</h1>
             </div>
           </Col>
           <Col></Col>

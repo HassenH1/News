@@ -6,6 +6,7 @@ function ContextProvider(props) {
   const [technology, setTechnology] = useState();
   const [politics, setPolitics] = useState();
   const [sports, setSports] = useState();
+  const [entertainment, setEntertainment] = useState();
   const [search, setSearch] = useState();
 
   const fetchHeadliners = async () => {
@@ -61,15 +62,38 @@ function ContextProvider(props) {
     }
   };
 
+  const fetchEntertainment = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/entertainment", {
+        method: "Get",
+      });
+
+      const result = await response.json();
+      console.log(result, ",-----------------------sporst resykt");
+      setEntertainment(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetchHeadliners();
-    fetchTechnologies();
-    fetchPolitics();
-    fetchSports();
   }, []);
 
   return (
-    <Context.Provider value={{ headliners, technology, politics, sports }}>
+    <Context.Provider
+      value={{
+        headliners,
+        technology,
+        politics,
+        sports,
+        entertainment,
+        fetchTechnologies,
+        fetchPolitics,
+        fetchSports,
+        fetchEntertainment,
+      }}
+    >
       {props.children}
     </Context.Provider>
   );

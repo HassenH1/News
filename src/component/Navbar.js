@@ -7,8 +7,8 @@ function NavbarComponent() {
       <Navbar.Brand href="/">
         <img
           src="https://www.pinclipart.com/picdir/big/454-4545041_newspaper-png-icon-news-paper-logo-icon-clipart.png"
-          width="70"
-          height="65"
+          width="55"
+          height="55"
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
@@ -17,6 +17,7 @@ function NavbarComponent() {
         <Nav.Link href="/technology">Technology</Nav.Link>
         <Nav.Link href="/politics">Politics</Nav.Link>
         <Nav.Link href="/sports">Sports</Nav.Link>
+        <Nav.Link href="/entertainment">Entertainment</Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

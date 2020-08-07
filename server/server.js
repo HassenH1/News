@@ -71,6 +71,22 @@ app.get("/sports", (req, res) => {
     });
 });
 
+app.get("/entertainment", (req, res) => {
+  newsapi.v2
+    .topHeadlines({
+      category: "entertainment",
+      language: "en",
+      country: "us",
+      sortBy: "relevancy",
+    })
+    .then((response) => {
+      res.json({
+        status: "ok",
+        articles: response.articles, //adding object to array
+      });
+    });
+});
+
 //test for searching
 app.get("/testing", (req, res) => {
   newsapi.v2

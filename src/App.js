@@ -7,6 +7,7 @@ import Footer from "./component/Footer";
 import Technology from "./component/Technology";
 import Politics from "./component/Politics";
 import Sports from "./component/Sports";
+import Entertainment from "./component/Entertainment";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/technology" component={Technology} />
           <Route exact path="/politics" component={Politics} />
           <Route exact path="/sports" component={Sports} />
+          <Route exact path="/entertainment" component={Entertainment} />
         </ContextProvider>
       </Switch>
       <Footer />

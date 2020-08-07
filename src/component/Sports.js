@@ -1,14 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Figure } from "react-bootstrap";
 import Context from "./Context/Context";
 import Loading from "./Loading";
 
 function Home() {
-  const { sports } = useContext(Context);
+  const { sports, fetchSports } = useContext(Context);
 
   const handleClick = () => {
     console.log("clicked");
   };
+
+  useEffect(() => {
+    fetchSports();
+  }, []);
 
   const article = sports?.articles
     ?.map((article, i) => {
