@@ -12,7 +12,7 @@ function Home() {
 
   const article = headliners?.articles
     ?.map((article, i) => {
-      return i % 3 === 0 ? headliners.articles.slice(i, i + 3) : null;
+      return i % 1 === 0 ? headliners.articles.slice(i, i + 1) : null;
     })
     .filter((x) => x !== null);
 
@@ -32,13 +32,26 @@ function Home() {
               {!item?.urlToImage ? (
                 <Figure
                   onClick={() => handleClick()}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
                 >
-                  <h4 style={{ textAlign: "center" }}>No image Available</h4>
-                  <Figure.Caption className="font-weight-bold">
+                  <h4
+                    style={{
+                      textAlign: "center",
+                      width: "354px",
+                      height: "216px",
+                      border: "1px solid orange",
+                    }}
+                  >
+                    No image Available
+                  </h4>
+                  <Figure.Caption className="font-weight-bold text-lg-center d-flex flex-column justify-content-start">
                     {item.title}
                   </Figure.Caption>
-                  {/* <p className="font-weight-light">{item.publishedAt}</p> */}
                   <p className="font-weight-light">
                     {getDate(item.publishedAt)}
                   </p>
@@ -46,21 +59,24 @@ function Home() {
               ) : (
                 <Figure
                   onClick={() => handleClick()}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
                 >
                   <Figure.Image
                     width={324}
                     height={216}
                     src={item.urlToImage}
-                    // style={{ borderRadius: "0.7rem" }}
                   />
-                  <Figure.Caption className="font-weight-bold text-lg-center">
+                  <Figure.Caption className="font-weight-bold text-lg-center d-flex flex-column justify-content-start">
                     {item.title}
+                    <p className="font-weight-light">
+                      {getDate(item.publishedAt)}
+                    </p>
                   </Figure.Caption>
-                  {/* <p className="font-weight-light">{item.publishedAt}</p> */}
-                  <p className="font-weight-light">
-                    {getDate(item.publishedAt)}
-                  </p>
                 </Figure>
               )}
             </Col>
