@@ -42,19 +42,21 @@ function Home() {
                   <h4
                     style={{
                       textAlign: "center",
-                      width: "354px",
+                      width: "324px",
                       height: "216px",
                       border: "1px solid orange",
                     }}
                   >
                     No image Available
                   </h4>
-                  <Figure.Caption className="font-weight-bold text-lg-center d-flex flex-column justify-content-start">
-                    {item.title}
+                  <Figure.Caption className="text-lg-center d-flex flex-column  align-items-start w-50">
+                    <div className="col">
+                      <div className="font-weight-bold">{item.title}</div>
+                    </div>
+                    <p className="font-weight-light">
+                      {getDate(item.publishedAt)}
+                    </p>
                   </Figure.Caption>
-                  <p className="font-weight-light">
-                    {getDate(item.publishedAt)}
-                  </p>
                 </Figure>
               ) : (
                 <Figure
@@ -71,8 +73,15 @@ function Home() {
                     height={216}
                     src={item.urlToImage}
                   />
-                  <Figure.Caption className="font-weight-bold text-lg-center d-flex flex-column justify-content-start">
-                    {item.title}
+                  <Figure.Caption className="text-lg-center d-flex flex-column  align-items-start w-50">
+                    <div className="col">
+                      <div className="font-weight-bold">{item.title}</div>
+                    </div>
+                    <div className="col">
+                      <div className="font-weight-normal text-left">
+                        {item.description}
+                      </div>
+                    </div>
                     <p className="font-weight-light">
                       {getDate(item.publishedAt)}
                     </p>
