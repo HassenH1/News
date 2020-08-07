@@ -67,6 +67,7 @@ function Home() {
                     flexDirection: "row",
                     justifyContent: "space-between",
                   }}
+                  className="shadow p-3 mb-5 bg-white rounded"
                 >
                   <Figure.Image
                     width={324}
@@ -82,9 +83,10 @@ function Home() {
                         {item.description}
                       </div>
                     </div>
-                    <p className="font-weight-light">
-                      {getDate(item.publishedAt)}
-                    </p>
+
+                    <div className="font-weight-light text-right w-100">
+                      <p>{getDate(item.publishedAt)}</p>
+                    </div>
                   </Figure.Caption>
                 </Figure>
               )}
