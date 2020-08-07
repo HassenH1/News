@@ -24,14 +24,30 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/testing", (req, res) => {
+app.get("/technology", (req, res) => {
   newsapi.v2
     .topHeadlines({
-      // category: "technology",
-      q:
-        "Teladoc Health Merging with Livongo Health in Deal Worth $18.5 Billion - Motley Fool",
+      category: "technology",
       language: "en",
       country: "us",
+      sortBy: "relevancy",
+    })
+    .then((response) => {
+      res.json({
+        status: "ok",
+        articles: response.articles, //adding object to array
+      });
+    });
+});
+
+//test for searching
+app.get("/testing", (req, res) => {
+  newsapi.v2
+    .everything({
+      q: "bitcoin",
+      language: "en",
+      sortBy: "relevancy",
+      page: 2,
     })
     .then((response) => {
       console.log(response, "<-------does it find the article itself?");
