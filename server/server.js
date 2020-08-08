@@ -98,8 +98,6 @@ app.post("/findArticle", async (req, res) => {
           language: "en",
         })
         .then((response) => {
-          console.log(response.articles[0].content);
-          console.log(response.articles[0].content.length);
           res.json({
             status: "found",
             article: response.articles,

@@ -9,7 +9,10 @@ function ContentPage() {
   let { title } = useParams();
 
   useEffect(() => {
-    findingArticle(title);
+    const timer = setTimeout(() => {
+      findingArticle(title);
+    }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   let article = !findArticle ? (
@@ -18,15 +21,19 @@ function ContentPage() {
     findArticle?.article?.map((elem, i) => {
       return (
         <>
-          <p key={i}>
-            {elem.content} - by{" "}
-            <span className="font-italic font-weight-ligh">{elem.author}</span>
-          </p>
-          <button>
-            <a href={elem.url} key={i}>
-              Link to Full Article
-            </a>
-          </button>
+          <div key={i}>
+            <p>
+              {elem.content} - by{" "}
+              <span className="font-italic font-weight-ligh">
+                {elem.author}
+              </span>
+            </p>
+            <button>
+              <a href={elem.url} key={i}>
+                Link to Full Article
+              </a>
+            </button>
+          </div>
           <br />
           <br />
         </>

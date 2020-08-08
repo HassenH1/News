@@ -119,7 +119,7 @@ function Home() {
           <Col></Col>
           <Col xs={6}>
             <div className="text-center font-weight-bold">
-              <h1>Top Headlines</h1>
+              <h1>Entertainment</h1>
             </div>
           </Col>
           <Col></Col>
