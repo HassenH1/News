@@ -2,12 +2,16 @@ import React, { useContext } from "react";
 import { Container, Row, Col, Figure } from "react-bootstrap";
 import Context from "./Context/Context";
 import Loading from "./Loading";
+import { useHistory } from "react-router-dom";
 
 function Home() {
+  let history = useHistory();
+
   const { headliners } = useContext(Context);
 
   const handleClick = (article) => {
     console.log(article, "what did i click on?");
+    history.push(`/${article.title}`);
   };
 
   const article = headliners?.articles
