@@ -2,12 +2,16 @@ import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Figure } from "react-bootstrap";
 import Context from "./Context/Context";
 import Loading from "./Loading";
+import { useHistory } from "react-router-dom";
 
 function Home() {
   const { entertainment, fetchEntertainment } = useContext(Context);
 
+  let history = useHistory();
+
   const handleClick = (article) => {
-    console.log(article, "clicked");
+    console.log(article, "what did i click on?");
+    history.push(`/${article.title}`);
   };
 
   useEffect(() => {

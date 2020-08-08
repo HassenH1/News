@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import Context from "./Context/Context";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+import Loading from "./Loading";
 
 function ContentPage() {
   const { findingArticle, findArticle } = useContext(Context);
@@ -11,18 +12,47 @@ function ContentPage() {
     findingArticle(title);
   }, []);
 
-  let article = findArticle?.article?.map((elem, i) => elem.content);
+  let article = !findArticle ? (
+    <Loading />
+  ) : (
+    findArticle?.article?.map((elem, i) => {
+      return (
+        <>
+          <p key={i}>
+            {elem.content} - by{" "}
+            <span className="font-italic font-weight-ligh">{elem.author}</span>
+          </p>
+          <button>
+            <a href={elem.url} key={i}>
+              Link to Full Article
+            </a>
+          </button>
+          <br />
+          <br />
+        </>
+      );
+    })
+  );
 
   return (
-    <div style={{ border: "1px solid red" }}>
+    <>
+      <br />
       <Container className="mh-100 h-100">
+        <Row className="text-center">
+          <Col></Col>
+          <Col xs={8}>
+            <h3 className="font-weight-bold">{title}</h3>
+          </Col>
+          <Col></Col>
+        </Row>
+        <br />
         <Row>
           <Col></Col>
-          <Col xs={6}>{article}</Col>
+          <Col xs={9}>{article}</Col>
           <Col></Col>
         </Row>
       </Container>
-    </div>
+    </>
   );
 }
 
