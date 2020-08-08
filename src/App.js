@@ -9,25 +9,28 @@ import Politics from "./component/Politics";
 import Sports from "./component/Sports";
 import Entertainment from "./component/Entertainment";
 import ContentPage from "./component/ContentPage";
+import SearchResult from "./component/SearchResult";
 // const Entertainment = lazy(() => import("./component/Entertainment"));
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Switch>
-        <ContextProvider>
+      <ContextProvider>
+        <Navbar />
+        <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/technology" component={Technology} />
           <Route exact path="/politics" component={Politics} />
           <Route exact path="/sports" component={Sports} />
           <Route exact path="/entertainment" component={Entertainment} />
           <Route exact path="/:title" component={ContentPage} />
+          <Route exact path="/searchResult" component={SearchResult} />
           {/* <Suspense fallback={Loading}>
             <Entertainment />
           </Suspense> */}
-        </ContextProvider>
-      </Switch>
+        </Switch>
+      </ContextProvider>
+
       <Footer />
     </>
   );

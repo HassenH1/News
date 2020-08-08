@@ -8,7 +8,7 @@ function ContextProvider(props) {
   const [sports, setSports] = useState();
   const [entertainment, setEntertainment] = useState();
   const [findArticle, setFindArticle] = useState();
-  const [search, setSearch] = useState();
+  const [searchResult, setSearching] = useState();
 
   const fetchHeadliners = async () => {
     try {
@@ -91,6 +91,23 @@ function ContextProvider(props) {
     }
   };
 
+  const search = async (input) => {
+    console.log(input, "<-----the input?");
+    try {
+      const response = await fetch("http://localhost:5000/searchInput", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input }),
+      });
+      const result = await response.json();
+      setSearching(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetchHeadliners();
   }, []);
@@ -104,11 +121,13 @@ function ContextProvider(props) {
         sports,
         entertainment,
         findArticle,
+        searchResult,
         fetchTechnologies,
         fetchPolitics,
         fetchSports,
         fetchEntertainment,
         findingArticle,
+        search,
       }}
     >
       {props.children}

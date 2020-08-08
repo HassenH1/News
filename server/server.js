@@ -87,14 +87,38 @@ app.get("/entertainment", (req, res) => {
     });
 });
 
-//test for searching
 app.post("/findArticle", async (req, res) => {
   try {
     if (req.body.find) {
       //getting the body
       newsapi.v2
         .everything({
-          q: req.body.find, //searching for article
+          q: req.body.find,
+          language: "en",
+        })
+        .then((response) => {
+          res.json({
+            status: "found",
+            article: response.articles,
+          });
+        })
+        .catch((err) => console.log(err));
+    } else {
+      res.json({ msg: "Nothing was Selected" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//test for searching
+app.post("/searchInput", async (req, res) => {
+  try {
+    if (req.body.input) {
+      //getting the body
+      newsapi.v2
+        .everything({
+          q: req.body.input, //searching for article
           language: "en",
         })
         .then((response) => {
