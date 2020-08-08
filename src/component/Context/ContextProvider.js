@@ -7,6 +7,7 @@ function ContextProvider(props) {
   const [politics, setPolitics] = useState();
   const [sports, setSports] = useState();
   const [entertainment, setEntertainment] = useState();
+  const [findArticle, setFindArticle] = useState();
   const [search, setSearch] = useState();
 
   const fetchHeadliners = async () => {
@@ -74,6 +75,22 @@ function ContextProvider(props) {
     }
   };
 
+  const findingArticle = async (find) => {
+    try {
+      const response = await fetch("http://localhost:5000/findArticle", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ find }),
+      });
+      const result = await response.json();
+      setFindArticle(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetchHeadliners();
   }, []);
@@ -86,10 +103,12 @@ function ContextProvider(props) {
         politics,
         sports,
         entertainment,
+        findArticle,
         fetchTechnologies,
         fetchPolitics,
         fetchSports,
         fetchEntertainment,
+        findingArticle,
       }}
     >
       {props.children}

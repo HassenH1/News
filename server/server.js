@@ -88,18 +88,40 @@ app.get("/entertainment", (req, res) => {
 });
 
 //test for searching
-app.get("/testing", (req, res) => {
+app.post("/findArticle", async (req, res) => {
+  try {
+    if (req.body.find) {
+      newsapi.v2
+        .everything({
+          q: req.body.find,
+          language: "en",
+        })
+        .then((response) => {
+          console.log(response);
+          res.json({
+            status: "found",
+            article: response.articles,
+          });
+        });
+    } else {
+      res.json({ msg: "Nothing was Selected" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+const getArticle = (find) => {
   newsapi.v2
     .everything({
-      q: "bitcoin",
+      q: find,
       language: "en",
-      sortBy: "relevancy",
-      page: 2,
     })
     .then((response) => {
-      console.log(response, "<-------does it find the article itself?");
+      console.log(response);
+      return response;
     });
-});
+};
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
