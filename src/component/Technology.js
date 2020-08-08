@@ -12,7 +12,7 @@ function Home() {
 
   useEffect(() => {
     fetchTechnologies();
-  });
+  }, []);
 
   const article = technology?.articles
     ?.map((article, i) => {

@@ -12,7 +12,7 @@ function Home() {
 
   useEffect(() => {
     fetchPolitics();
-  });
+  }, []);
 
   const article = politics?.articles
     ?.map((article, i) => {

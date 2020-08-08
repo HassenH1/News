@@ -91,18 +91,21 @@ app.get("/entertainment", (req, res) => {
 app.post("/findArticle", async (req, res) => {
   try {
     if (req.body.find) {
+      //getting the body
       newsapi.v2
         .everything({
-          q: req.body.find,
+          q: req.body.find, //searching for article
           language: "en",
         })
         .then((response) => {
-          console.log(response);
+          console.log(response.articles[0].content);
+          console.log(response.articles[0].content.length);
           res.json({
             status: "found",
             article: response.articles,
           });
-        });
+        })
+        .catch((err) => console.log(err));
     } else {
       res.json({ msg: "Nothing was Selected" });
     }
@@ -110,18 +113,6 @@ app.post("/findArticle", async (req, res) => {
     console.log(err);
   }
 });
-
-const getArticle = (find) => {
-  newsapi.v2
-    .everything({
-      q: find,
-      language: "en",
-    })
-    .then((response) => {
-      console.log(response);
-      return response;
-    });
-};
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

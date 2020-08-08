@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Form, FormControl } from "react-bootstrap";
 
 function NavbarComponent() {
   return (
-    <Navbar bg="light" variant="light">
+    <Navbar bg="light" variant="light" className="sticky-top">
       <Navbar.Brand href="/">
         <img
           src="https://www.pinclipart.com/picdir/big/454-4545041_newspaper-png-icon-news-paper-logo-icon-clipart.png"
