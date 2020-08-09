@@ -89,6 +89,7 @@ app.get("/entertainment", (req, res) => {
 
 app.post("/findArticle", async (req, res) => {
   try {
+    console.log(req.body.find, "<-------------------what is this??");
     if (req.body.find) {
       //getting the body
       newsapi.v2
@@ -97,6 +98,7 @@ app.post("/findArticle", async (req, res) => {
           language: "en",
         })
         .then((response) => {
+          console.log(response, "<------------------------response");
           res.json({
             status: "found",
             article: response.articles,
