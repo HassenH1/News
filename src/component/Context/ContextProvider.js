@@ -92,7 +92,6 @@ function ContextProvider(props) {
   };
 
   const search = async (input) => {
-    console.log(input, "<-----the input?");
     try {
       const response = await fetch("http://localhost:5000/searchInput", {
         method: "POST",

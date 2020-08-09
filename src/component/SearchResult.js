@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "./Context/Context";
 
 function SearchResult(props) {
-  return <div>{props.location.customNameData}</div>;
+  const { searchResult } = useContext(Context);
+
+  console.log(searchResult);
+
+  return <div>{searchResult?.article?.map((elem) => elem.author)}</div>;
 }
 
 export default SearchResult;

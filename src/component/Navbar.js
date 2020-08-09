@@ -15,19 +15,20 @@ function NavbarComponent() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submitting");
     if (!searching) {
       setError("Cannot Submit an Empty field");
       return;
     } else {
       search(searching);
-      history.push(`/searchResult`, searchResult);
+      // history.push(`/searchResult`, searchResult);
+      history.push({
+        pathname: "/searchResult?",
+      });
     }
   };
 
   return (
     <Navbar bg="light" variant="light" className="sticky-top">
-      {console.log(searching, ",-----the value?")}
       <Navbar.Brand href="/">
         <img
           src="https://www.pinclipart.com/picdir/big/454-4545041_newspaper-png-icon-news-paper-logo-icon-clipart.png"

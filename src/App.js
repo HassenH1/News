@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import Navbar from "./component/Navbar";
 import Home from "./component/Home";
 import ContextProvider from "./component/Context/ContextProvider";
@@ -23,11 +23,8 @@ function App() {
           <Route exact path="/politics" component={Politics} />
           <Route exact path="/sports" component={Sports} />
           <Route exact path="/entertainment" component={Entertainment} />
+          <Route exact path="/searchResult?" component={SearchResult} />
           <Route exact path="/:title" component={ContentPage} />
-          <Route exact path="/searchResult" component={SearchResult} />
-          {/* <Suspense fallback={Loading}>
-            <Entertainment />
-          </Suspense> */}
         </Switch>
       </ContextProvider>
 

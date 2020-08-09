@@ -10,7 +10,6 @@ function Home() {
   const { technology, fetchTechnologies } = useContext(Context);
 
   const handleClick = (article) => {
-    console.log(article, "what did i click on?");
     history.push(`/${article.title}`);
   };
 
