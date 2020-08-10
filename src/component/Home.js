@@ -11,6 +11,13 @@ function Home() {
 
   const handleClick = (article) => {
     console.log(article, "what did i click on?");
+
+    const title = headliners?.articles?.find(
+      (elem) => elem.title === article.title
+    );
+
+    console.log(title, "<------------what is this for real?");
+
     history.push(`/${article.title}`);
   };
 
