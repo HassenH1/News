@@ -17,14 +17,12 @@ function ContentPage() {
 
   let article = !findArticle ? (
     <>
-      {console.log("hitting the loading?")}
       <Loading />
     </>
   ) : (
     findArticle?.article?.map((elem, i) => {
       return (
         <>
-          {console.log("after loading?")}
           <div key={i}>
             <p>
               {elem.content} - by{" "}
@@ -47,7 +45,6 @@ function ContentPage() {
 
   return (
     <>
-      {console.log("<-------------------Content Page?")}
       <br />
       <Container className="mh-100 h-100">
         <Row className="text-center">
