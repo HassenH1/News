@@ -3,6 +3,7 @@ import { Container, Row, Col, Figure } from "react-bootstrap";
 import Context from "./Context/Context";
 import Loading from "./Loading";
 import { useHistory } from "react-router-dom";
+import "../App.css";
 
 function Home() {
   let history = useHistory();

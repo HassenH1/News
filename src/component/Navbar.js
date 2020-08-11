@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Navbar, Nav, Button, Form, FormControl } from "react-bootstrap";
 import Context from "./Context/Context";
 import { useHistory } from "react-router-dom";
+import "../App.css";
 
 function NavbarComponent() {
   let history = useHistory();
