@@ -10,13 +10,11 @@ import Sports from "./component/Sports";
 import Entertainment from "./component/Entertainment";
 import ContentPage from "./component/ContentPage";
 import SearchResult from "./component/SearchResult";
-// const Entertainment = lazy(() => import("./component/Entertainment"));
 
 function App() {
   return (
-    <>
       <ContextProvider>
-        <Navbar />
+        <Navbar 
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/technology" component={Technology} />
@@ -27,7 +25,6 @@ function App() {
           <Route exact path="/:title" component={ContentPage} />
         </Switch>
       </ContextProvider>
-
       <Footer />
     </>
   );
